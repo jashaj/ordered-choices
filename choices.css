@@ -6,7 +6,7 @@ html {
 }
 
 .choices li:first-child .up, .choices li:last-child .down {
-  display: none;
+  visibility: hidden;
 }
 
 .choice {
@@ -15,9 +15,31 @@ html {
 }
 
 .orderable {
+  /* Hard coding width for better alignment (can't use a grid without losing semantics on the ol/li) */
+  width: 40ch;
 }
 
 input[type=checkbox] + label {
   font-size: 1rem;
   padding: .4rem;
+}
+
+button {
+  font-size: 1rem;
+  padding: .3rem;
+  margin: .25rem;
+  min-width: 6ch;
+
+  border: 1px solid #444;
+  color: #444;
+  background-color: #fff;
+}
+
+button:active {
+  color: #fff;
+  background-color: #444;
+}
+
+button[type=submit] {
+  margin: 1rem;
 }

@@ -1,7 +1,6 @@
 const choices = document.querySelector('#choices');
 
 function goUp(target) {
-
   let currentItem = target.closest('li');
   let previousItem = currentItem.previousElementSibling;
   let parent = currentItem.parentElement;
