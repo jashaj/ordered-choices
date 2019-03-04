@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Ordered choices</title>
+  <link rel="stylesheet" href="choices.css"/>
+</head>
+<body>
+<h1>Ordered choices</h1>
+
+<form id="form" action="#form">
+  <fieldset>
+    <legend>Favourite fruit</legend>
+    <ol class="choices" id="choices">
+      <li>
+        <div class="choice">
+          <div class="orderable"><input id="apple" type="checkbox" name="fruit" value="apple"/> <label for="apple"><span>Apple</span></label></div>
+          <div class="change-order">
+            <button type="button" class="up">Up</button>
+            <button type="button" class="down">Down</button>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="choice">
+          <div class="orderable"><input id="banana" type="checkbox" name="fruit" value="banana"/> <label for="banana"><span>Banana</span></label></div>
+          <div class="change-order">
+            <button type="button" class="up">Up</button>
+            <button type="button" class="down">Down</button>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="choice">
+          <div class="orderable"><input id="lemon" type="checkbox" name="fruit" value="lemon"/> <label for="lemon"><span>Lemon</span></label></div>
+          <div class="change-order">
+            <button type="button" class="up">Up</button>
+            <button type="button" class="down">Down</button>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="choice">
+          <div class="orderable"><input id="tangerine" type="checkbox" name="fruit" value="tangerine"/> <label for="tangerine"><span>Tangerine</span></label></div>
+          <div class="change-order">
+            <button type="button" class="up">Up</button>
+            <button type="button" class="down">Down</button>
+          </div>
+        </div>
+      </li>
+    </ol>
+  </fieldset>
+
+  <button type="submit">Submit</button>
+</form>
+
+<script src="choices.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.choices li {
+}
+
+.choices li:first-child .up, .choices li:last-child .down {
+  display: none;
+}
+
+.choice {
+  display: flex;
+  margin: .4rem;
+}
+
+.orderable {
+}
+
+input[type=checkbox] + label {
+  font-size: 1rem;
+  padding: .4rem;
+}
