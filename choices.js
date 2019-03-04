@@ -27,11 +27,13 @@ function goDown(target) {
   parent.insertBefore(nextItem.cloneNode(true), currentItem);
   parent.removeChild(nextItem);
 
-  nextItem = currentItem.nextElementSibling;
-  if (nextItem === null) {
+  let newNext = currentItem.nextElementSibling;
+  if (newNext === null) {
     currentItem.querySelector('.up').focus();
   }
-  // else: down button still has focus
+  else {
+    currentItem.querySelector('.down').focus();
+  }
 }
 
 choices.addEventListener('click', function (event) {
