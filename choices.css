@@ -2,9 +2,6 @@ html {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.choices li {
-}
-
 .choices li:first-child .up, .choices li:last-child .down {
   visibility: hidden;
 }
@@ -14,14 +11,19 @@ html {
   margin: .4rem;
 }
 
-.orderable {
-  /* Hard coding width for better alignment (can't use a grid without losing semantics on the ol/li) */
-  width: 40ch;
+input[type=checkbox] {
+  font-size: 1rem;
+  padding: .4rem;
 }
 
 input[type=checkbox] + label {
   font-size: 1rem;
   padding: .4rem;
+  flex: 1;
+}
+
+input[type=checkbox] + label:hover {
+  background-color: #ddd;
 }
 
 button {
@@ -42,4 +44,43 @@ button:active {
 
 button[type=submit] {
   margin: 1rem;
+}
+
+.moved {
+  -webkit-animation: fadein .5s;
+  -ms-animation: fadein .5s;
+  animation: fadein .5s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+    background-color: #ccc;
+  }
+  to {
+    opacity: 1;
+    background-color: #fff;
+  }
+}
+
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+    background-color: #ccc;
+  }
+  to {
+    opacity: 1;
+    background-color: #fff;
+  }
+}
+
+@-ms-keyframes fadein {
+  from {
+    opacity: 0;
+    background-color: #ccc;
+  }
+  to {
+    opacity: 1;
+    background-color: #fff;
+  }
 }

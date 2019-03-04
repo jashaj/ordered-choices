@@ -6,6 +6,7 @@ function goUp(target) {
   let parent = currentItem.parentElement;
 
   let moveUp = currentItem.cloneNode(true);
+  moveUp.classList.add('moved');
   parent.insertBefore(moveUp, previousItem);
   parent.removeChild(currentItem);
 
@@ -16,6 +17,8 @@ function goUp(target) {
   else {
     moveUp.querySelector('.up').focus();
   }
+
+  setTimeout(() => moveUp.classList.remove('moved'), 500);
 }
 
 function goDown(target) {
@@ -25,7 +28,7 @@ function goDown(target) {
 
   parent.insertBefore(nextItem.cloneNode(true), currentItem);
   parent.removeChild(nextItem);
-
+  currentItem.classList.add('moved');
   let newNext = currentItem.nextElementSibling;
   if (newNext === null) {
     currentItem.querySelector('.up').focus();
@@ -33,9 +36,11 @@ function goDown(target) {
   else {
     currentItem.querySelector('.down').focus();
   }
+
+  setTimeout(() => currentItem.classList.remove('moved'), 500);
 }
 
-choices.addEventListener('click', function (event) {
+choices.addEventListener('click', event => {
   const target = event.target;
   let classList = target.classList;
   if (classList.contains('up')) {
