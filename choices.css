@@ -2,14 +2,6 @@ html {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.js-only {
-  display: none;
-}
-
-.has-js .js-only {
-  display: block;
-}
-
 form {
   padding: 0.8rem;
 }
@@ -24,6 +16,44 @@ legend {
   text-align: left;
   font-size: 1.5rem;
   font-weight: bold;
+}
+
+button {
+  font-size: 1rem;
+  padding: .3rem;
+  margin: .25rem;
+  min-width: 6ch;
+
+  border: 1px solid #444;
+  color: #444;
+  background-color: #fff;
+}
+
+button:active {
+  color: #fff;
+  background-color: #444;
+}
+
+button[type=submit] {
+  margin: 1rem;
+}
+
+input[type=checkbox] {
+  font-size: 1rem;
+  padding: .4rem;
+}
+
+input[type=checkbox] + label {
+  font-size: 1rem;
+  padding: .4rem;
+}
+
+.js-only {
+  display: none;
+}
+
+.has-js .js-only {
+  display: block;
 }
 
 .choices li {
@@ -54,40 +84,10 @@ legend {
   flex: 1;
 }
 
-input[type=checkbox] {
-  font-size: 1rem;
-  padding: .4rem;
-}
-
-input[type=checkbox] + label {
-  font-size: 1rem;
-  padding: .4rem;
-}
-
 .change-order {
   flex: 1;
 }
 
 .change-order button + button {
   margin-left: .8rem;
-}
-
-button {
-  font-size: 1rem;
-  padding: .3rem;
-  margin: .25rem;
-  min-width: 6ch;
-
-  border: 1px solid #444;
-  color: #444;
-  background-color: #fff;
-}
-
-button:active {
-  color: #fff;
-  background-color: #444;
-}
-
-button[type=submit] {
-  margin: 1rem;
 }
