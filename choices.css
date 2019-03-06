@@ -2,6 +2,14 @@ html {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.js-only {
+  display: none;
+}
+
+.has-js .js-only {
+  display: block;
+}
+
 form {
   padding: 0.8rem;
 }
@@ -19,14 +27,32 @@ legend {
 }
 
 .choices li {
-  list-style: none;
   padding: .4rem 0;
+  list-style: none;
 }
 
 .ordered li {
-  padding: .4rem 0;
+  padding: 0 .4rem;
 }
 
+.ordered li:hover {
+  background-color: #cccccc;
+}
+
+.ordered li:first-of-type .up, .ordered li:last-of-type .down {
+  visibility: hidden;
+}
+
+.choice {
+  padding: .4rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.choice-label {
+  padding: .4rem;
+  flex: 1;
+}
 
 input[type=checkbox] {
   font-size: 1rem;
@@ -36,9 +62,15 @@ input[type=checkbox] {
 input[type=checkbox] + label {
   font-size: 1rem;
   padding: .4rem;
+}
+
+.change-order {
   flex: 1;
 }
 
+.change-order button + button {
+  margin-left: .8rem;
+}
 
 button {
   font-size: 1rem;
@@ -58,8 +90,4 @@ button:active {
 
 button[type=submit] {
   margin: 1rem;
-}
-
-.ordered {
-
 }
