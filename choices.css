@@ -2,14 +2,31 @@ html {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.choices li:first-child .up, .choices li:last-child .down {
-  visibility: hidden;
+form {
+  padding: 0.8rem;
 }
 
-.choice {
-  display: flex;
-  margin: .4rem;
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
 }
+
+legend {
+  text-align: left;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.choices li {
+  list-style: none;
+  padding: .4rem 0;
+}
+
+.ordered li {
+  padding: .4rem 0;
+}
+
 
 input[type=checkbox] {
   font-size: 1rem;
@@ -22,9 +39,6 @@ input[type=checkbox] + label {
   flex: 1;
 }
 
-input[type=checkbox] + label:hover {
-  background-color: #ddd;
-}
 
 button {
   font-size: 1rem;
@@ -46,41 +60,6 @@ button[type=submit] {
   margin: 1rem;
 }
 
-.moved {
-  -webkit-animation: fadein .5s;
-  -ms-animation: fadein .5s;
-  animation: fadein .5s;
-}
+.ordered {
 
-@keyframes fadein {
-  from {
-    opacity: 0;
-    background-color: #ccc;
-  }
-  to {
-    opacity: 1;
-    background-color: #fff;
-  }
-}
-
-@-webkit-keyframes fadein {
-  from {
-    opacity: 0;
-    background-color: #ccc;
-  }
-  to {
-    opacity: 1;
-    background-color: #fff;
-  }
-}
-
-@-ms-keyframes fadein {
-  from {
-    opacity: 0;
-    background-color: #ccc;
-  }
-  to {
-    opacity: 1;
-    background-color: #fff;
-  }
 }

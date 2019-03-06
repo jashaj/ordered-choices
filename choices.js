@@ -1,55 +1,59 @@
 const choices = document.querySelector('#choices');
+const orderedChoices = document.querySelector('#ordered-choices');
+const orderedChoicesInput = document.querySelector('#ordered-choices-input');
 
-function goUp(target) {
-  let currentItem = target.closest('li');
-  let previousItem = currentItem.previousElementSibling;
-  let parent = currentItem.parentElement;
-
-  let moveUp = currentItem.cloneNode(true);
-  moveUp.classList.add('moved');
-  parent.insertBefore(moveUp, previousItem);
-  parent.removeChild(currentItem);
-
-  let newPrevious = moveUp.previousElementSibling;
-  if (newPrevious === null) {
-    moveUp.querySelector('.down').focus();
+function getOrderedChoicesValues() {
+  let value = orderedChoicesInput.value;
+  let values;
+  if (value.length > 0) {
+    values = value.split(',');
+  } else {
+    values = [];
   }
-  else {
-    moveUp.querySelector('.up').focus();
-  }
-
-  setTimeout(() => moveUp.classList.remove('moved'), 500);
+  return values;
 }
 
-function goDown(target) {
-  let currentItem = target.closest('li');
-  let nextItem = currentItem.nextElementSibling;
-  let parent = currentItem.parentElement;
-
-  parent.insertBefore(nextItem.cloneNode(true), currentItem);
-  parent.removeChild(nextItem);
-  currentItem.classList.add('moved');
-  let newNext = currentItem.nextElementSibling;
-  if (newNext === null) {
-    currentItem.querySelector('.up').focus();
-  }
-  else {
-    currentItem.querySelector('.down').focus();
-  }
-
-  setTimeout(() => currentItem.classList.remove('moved'), 500);
+function setOrderedChoicesValues(values) {
+  orderedChoicesInput.value = values.join(',');
+  console.log('registered', orderedChoicesInput.value);
 }
 
-choices.addEventListener('click', event => {
+function addChoice(id, label) {
+  let li = document.createElement('li');
+  li.setAttribute('data-choice', id);
+  li.textContent = label;
+  orderedChoices.appendChild(li);
+
+  let values = getOrderedChoicesValues();
+  values.push(id);
+  setOrderedChoicesValues(values);
+}
+
+function removeChoice(id) {
+  let li = orderedChoices.querySelector(`li[data-choice=${id}]`);
+  if (li !== null) {
+    orderedChoices.removeChild(li);
+  }
+  let values = getOrderedChoicesValues();
+  let filtered = values.filter(value => value !== id);
+  setOrderedChoicesValues(filtered);
+}
+
+choices.addEventListener('change', event => {
+
   const target = event.target;
-  let classList = target.classList;
-  if (classList.contains('up')) {
-    goUp(target);
+
+  if (target.type === 'checkbox') {
     event.stopPropagation();
+
+    let id = target.id;
+    if (target.checked === true) {
+      let labelElt = choices.querySelector(`label[for=${id}]`);
+      let label = labelElt === null ? target.value : labelElt.textContent;
+      addChoice(id, label)
+    } else {
+      removeChoice(id);
+    }
   }
-  else if (classList.contains('down')) {
-    goDown(target);
-    event.stopPropagation();
-  }
-  // else do nothing
+
 });

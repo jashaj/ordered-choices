@@ -11,49 +11,30 @@
 <form id="form" action="#form">
   <fieldset>
     <legend>Favourite fruit</legend>
-    <ol class="choices" id="choices">
+    <ul id="choices" class="choices">
       <li>
-        <div class="choice">
-          <div class="change-order">
-            <button type="button" class="up">Up</button>
-            <button type="button" class="down">Down</button>
-          </div>
-          <input id="apple" type="checkbox" name="fruit" value="apple"/>
-          <label for="apple">Apple</label>
-        </div>
+        <input id="apple" type="checkbox" name="fruit" value="apple"/>
+        <label for="apple">Apple</label>
       </li>
       <li>
-        <div class="choice">
-          <div class="change-order">
-            <button type="button" class="up">Up</button>
-            <button type="button" class="down">Down</button>
-          </div>
-          <input id="banana" type="checkbox" name="fruit" value="banana"/>
-          <label for="banana">Banana</label>
-        </div>
+        <input id="banana" type="checkbox" name="fruit" value="banana"/>
+        <label for="banana">Banana</label>
       </li>
       <li>
-        <div class="choice">
-          <div class="change-order">
-            <button type="button" class="up">Up</button>
-            <button type="button" class="down">Down</button>
-          </div>
-          <input id="lemon" type="checkbox" name="fruit" value="lemon"/>
-          <label for="lemon">Lemon</label>
-        </div>
+        <input id="lemon" type="checkbox" name="fruit" value="lemon"/>
+        <label for="lemon">Lemon</label>
       </li>
       <li>
-        <div class="choice">
-          <div class="change-order">
-            <button type="button" class="up">Up</button>
-            <button type="button" class="down">Down</button>
-          </div>
-          <input id="tangerine" type="checkbox" name="fruit" value="tangerine"/>
-          <label for="tangerine">Tangerine</label>
-        </div>
+        <input id="tangerine" type="checkbox" name="fruit" value="tangerine"/>
+        <label for="tangerine">Tangerine</label>
       </li>
-    </ol>
+    </ul>
   </fieldset>
+
+  <h2>Selected options</h2>
+  <input type="hidden" id="ordered-choices-input"/>
+  <ol class="ordered" id="ordered-choices">
+  </ol>
 
   <button type="submit">Submit</button>
 </form>
